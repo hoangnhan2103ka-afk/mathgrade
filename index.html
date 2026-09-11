@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (function() {
+        try {
+          var originalFetch = window.fetch;
+          var activeFetch = originalFetch;
+          Object.defineProperty(window, 'fetch', {
+            configurable: true,
+            enumerable: true,
+            get: function() {
+              return activeFetch;
+            },
+            set: function(fn) {
+              activeFetch = fn;
+            }
+          });
+        } catch (e) {
+          try {
+            var proto = Object.getPrototypeOf(window);
+            if (proto) {
+              var protoFetch = proto.fetch;
+              Object.defineProperty(proto, 'fetch', {
+                configurable: true,
+                enumerable: true,
+                get: function() {
+                  return protoFetch;
+                },
+                set: function(fn) {
+                  protoFetch = fn;
+                }
+              });
+            }
+          } catch (e2) {}
+        }
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản Lý Học Sinh Môn Toán</title>
+    <meta name="description" content="Ứng dụng cho giáo viên bộ môn Toán: nhập danh sách lớp bằng AI (đọc ảnh chụp/Excel), sổ điểm theo hệ số, điểm cộng lên bảng, theo dõi nề nếp tiết học, nhận xét học sinh bằng AI và xuất báo cáo định kỳ theo tháng, học kỳ." />
+    <meta property="og:title" content="Quản Lý Học Sinh Môn Toán" />
+    <meta property="og:description" content="Ứng dụng cho giáo viên bộ môn Toán: nhập danh sách lớp bằng AI (đọc ảnh chụp/Excel), sổ điểm theo hệ số, điểm cộng lên bảng, theo dõi nề nếp tiết học, nhận xét học sinh bằng AI và xuất báo cáo định kỳ theo tháng, học kỳ." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

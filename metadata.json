@@ -1,0 +1,6 @@
+{
+  "name": "Quản Lý Học Sinh Môn Toán",
+  "description": "Ứng dụng cho giáo viên bộ môn Toán: nhập danh sách lớp bằng AI (đọc ảnh chụp/Excel), sổ điểm theo hệ số, điểm cộng lên bảng, theo dõi nề nếp tiết học, nhận xét học sinh bằng AI và xuất báo cáo định kỳ theo tháng, học kỳ.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
